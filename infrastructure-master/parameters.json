@@ -1,0 +1,108 @@
+[
+
+  {
+    "ParameterKey": "VpcCIDR",
+    "ParameterValue": "192.168.102.0/24"
+  }, 
+  {
+    "ParameterKey": "VpcName",
+    "ParameterValue": "csye6225-vpc"
+  }, 
+  {
+    "ParameterKey": "PublicSubnet1CIDR",
+    "ParameterValue": "192.168.102.0/28"
+  }, 
+  {
+    "ParameterKey": "PublicSubnet2CIDR",
+    "ParameterValue": "192.168.102.16/28"
+  }, 
+  {
+    "ParameterKey": "PublicSubnet3CIDR",
+    "ParameterValue": "192.168.102.32/28"
+  }, 
+  {
+    "ParameterKey": "DBInstanceClass",
+    "ParameterValue": "db.t3.micro"
+  }, 
+  {
+    "ParameterKey": "PubliclyAccessibleRDS",
+    "ParameterValue": "false"
+  }, 
+  {
+    "ParameterKey": "EC2InstanceType",
+    "ParameterValue": "t2.micro"
+  }, 
+  {
+    "ParameterKey": "EC2VolumeSize",
+    "ParameterValue": "20"
+  },
+  {
+    "ParameterKey": "EC2VolumeType",
+    "ParameterValue": "gp2"
+  },
+  {
+    "ParameterKey": "DBName",
+    "ParameterValue": "csye6225"
+  },
+  {
+    "ParameterKey": "DBUser",
+    "ParameterValue": "root"
+  },
+  {
+    "ParameterKey": "DBPassword",
+    "ParameterValue": "Dracarys+2020"
+  },
+  {
+    "ParameterKey": "EC2KeyName",
+    "ParameterValue": "csye6225"
+  },
+  {
+    "ParameterKey": "EC2ImageID",
+    "ParameterValue": "ami-0b65659503d65e6ee"
+  },
+  {
+    "ParameterKey": "CodeDeployRegion",
+    "ParameterValue": "us-east-1"
+  },
+  {
+    "ParameterKey": "CodeDeployBucket",
+    "ParameterValue": "codedeploy.prod.srikanthreddygubballi.me"
+  },
+  {
+    "ParameterKey": "AccountID",
+    "ParameterValue": "748596750012"
+  },
+  {
+    "ParameterKey": "AsgLaunchConfig",
+    "ParameterValue": "asg_launch_config"
+  },
+  {
+    "ParameterKey": "MinSize",
+    "ParameterValue": "2"
+  },
+  {
+    "ParameterKey": "MaxSize",
+    "ParameterValue": "5"
+  },
+  {
+    "ParameterKey": "DesiredCapacity",
+    "ParameterValue": "2"
+  },
+  {
+    "ParameterKey": "DomainName",
+    "ParameterValue": "prod.srikanthreddygubballi.me"
+  },
+  {
+    "ParameterKey": "SQSQueueName",
+    "ParameterValue": "csye6225-sqs"
+  },
+  {
+    "ParameterKey": "SNSTopicName",
+    "ParameterValue": "csye6225-sns"
+  },
+  {
+    "ParameterKey": "LambdaBucket",
+    "ParameterValue": "dev-lambdabucket"
+  }
+
+]

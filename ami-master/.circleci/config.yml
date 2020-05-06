@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: Install aws cli in the container
+          command: |
+            pwd
+            ls -la
+            sudo apt-get update
+            sudo apt-get install curl -y
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo apt-get install unzip -y
+            unzip awscliv2.zip
+            sudo ./aws/install
+            aws --version
+      - run:
+          name: Install Packer
+          command: |
+            wget https://releases.hashicorp.com/packer/1.5.4/packer_1.5.4_linux_amd64.zip
+            unzip packer_1.5.4_linux_amd64.zip
+            sudo mv packer /usr/local/bin
+      - run:
+          name: Validate packer config
+          command: | 
+            packer validate \
+            -var "aws_access_key=${AWS_ACCESS_KEY}" \
+            -var "aws_secret_key=${AWS_SECRET_KEY}" \
+            -var "aws_region=${AWS_REGION}" \
+            -var "ami_users=${AMI_USERS}" \
+            -var "source_ami=${SOURCE_AMI}" \
+            -var "subnet_id=${SUBNET_ID}" \
+            ubuntu-ami.json
+
+      - run:
+          name: Build packer config
+          command: | 
+            packer build \
+            -var "aws_access_key=${AWS_ACCESS_KEY}" \
+            -var "aws_secret_key=${AWS_SECRET_KEY}" \
+            -var "aws_region=${AWS_REGION}" \
+            -var "ami_users=${AMI_USERS}" \
+            -var "source_ami=${SOURCE_AMI}" \
+            -var "subnet_id=${SUBNET_ID}" \
+            ubuntu-ami.json
+
+          
+workflows:
+  version: 2
+  build-deploy-workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+  

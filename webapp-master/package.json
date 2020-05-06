@@ -1,0 +1,32 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "Assignment-1 for cloud",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --forceExit"
+  },
+  "author": "Srikanth Reddy",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.624.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.1",
+    "http-status-codes": "^1.4.0",
+    "jest": "^25.1.0",
+    "joi": "^14.3.1",
+    "latest-version": "^5.1.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3",
+    "sqs-consumer": "^5.4.0",
+    "statsd-client": "^0.4.4",
+    "supertest": "^4.0.2",
+    "uuid": "^3.4.0",
+    "winston": "^3.2.1",
+    "winston-aws-cloudwatch": "^3.0.0"
+  }
+}

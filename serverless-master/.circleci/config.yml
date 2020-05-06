@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/serverless
+    docker:
+      - image: circleci/node:8.10.0
+
+    steps:
+      - checkout
+      - run:
+          name: Install aws cli in the container
+          command: |
+            pwd
+            ls -la
+            sudo apt-get update
+            sudo apt-get install curl -y
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo apt-get install unzip -y
+            sudo apt-get install less -y
+            unzip awscliv2.zip
+            sudo ./aws/install
+            aws --version
+      - run:
+          name: zip the index.js file and update the lambda function
+          command: |
+            zip -X -r ../serverless.zip index.js
+            cd ..
+            pwd
+            ls -la
+            aws lambda update-function-code --function-name myLambda --zip-file fileb://serverless.zip
+
+workflows:
+  version: 2
+  build-workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
