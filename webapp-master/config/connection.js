@@ -8,6 +8,7 @@ require('dotenv').config({path : envpath + "/.env"});
 
 mysqlConnection =  new Sequelize(process.env.DB_NAME , process.env.DB_USER, process.env.DB_PASSWORD, {
     host: process.env.DB_HOST,
+    port: 3307,
     dialect: 'mysql',
     operatorsAliases: false,
     ssl  : {
@@ -18,11 +19,11 @@ mysqlConnection =  new Sequelize(process.env.DB_NAME , process.env.DB_USER, proc
       max: 5,
       min: 0,
       acquire: 30000,
-      idle: 10000
+      idle: 12000
     },
   });
 
-  mysqlConnection.query("CREATE DATABASE IF NOT EXISTS `csye6225`;").then(() => console.log("Database created!")).catch((err) => {console.log("Error in database creation")})
+  // mysqlConnection.query("CREATE DATABASE IF NOT EXISTS `csye6225`;").then(() => console.log("Database created!")).catch((err) => {console.log("Error in database creation")})
 
   mysqlConnection.authenticate()
                  .then(() => console.log('Connected'))

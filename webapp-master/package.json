@@ -4,6 +4,7 @@
   "description": "Assignment-1 for cloud",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "jest --forceExit"
   },
   "author": "Srikanth Reddy",
