@@ -7,3 +7,6 @@ Leveraged Hashicorp Packer to build a custom AMI image on AWS and share it with 
 Automated resource creation using AWS Cloudformation.
 
 The individual folders inside this repo contain more detailed information.
+
+Technologies: AWS, Nodejs, Express, Sequelize, Packer, Cloudformation, CircleCI, MySQL.
+
